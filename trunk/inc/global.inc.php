@@ -21,23 +21,20 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-error_reporting ( 'E_ALL & E_STRICT' );
+error_reporting('E_ALL | E_STRICT');
 
-if ( !defined ( 'PA_ROOT' ) )
-    define ( 'PA_ROOT', dirname ( realpath ( "index.php" ) ) . '/' );
-
-if ( !is_file ( PA_ROOT . 'index.php' ) )
-{
-    die ( 'The required variable <tt>PA_ROOT</tt> could not be set by PhpAlmanac!' );
+if (!defined('PA_ROOT')) {
+    define('PA_ROOT', dirname(realpath('index.php')) . '/');
 }
 
-if ( is_file ( PA_ROOT . 'inc/config.inc.php' ) )
-{
-    require_once ( PA_ROOT . 'inc/config.inc.php' );
+if (!is_file(PA_ROOT . 'index.php')) {
+    die('The required variable <tt>PA_ROOT</tt> could not be set by PhpAlmanac!');
 }
-else
-{
-    die ( 'The required configuration file could not be found!' );
+
+if (is_file(PA_ROOT . 'inc/config.inc.php')) {
+    require_once PA_ROOT . 'inc/config.inc.php';
+} else {
+    die('The required configuration file could not be found!');
 }
 
 ?>
