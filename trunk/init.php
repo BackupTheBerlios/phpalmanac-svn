@@ -59,8 +59,8 @@ $phpa = new StdClass;
 
 $phpa->tpl = new Savant3;
 $phpa->tpl->addPath('template', 'templates/');
-$phpa->tpl->loadFilter('trimwhitespace');
 $phpa->tpl->loadPlugin('qbuild');
+$phpa->tpl->addFilters('tidy');
 
 try {
     $phpa->DB = new DBConnect($db_name, $db_username, $db_password, $db_host);

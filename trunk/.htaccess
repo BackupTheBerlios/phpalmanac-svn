@@ -7,3 +7,4 @@ php_flag session.use_trans_sid off
 php_flag url_rewriter.tags none
 php_flag short_open_tag on
 php_flag magic_quotes_gpc on
+php_flag tidy.clean_output off

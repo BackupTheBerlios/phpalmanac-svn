@@ -30,7 +30,7 @@
   
   <?php /* PHP Almanac */ ?>
   
-  <p style="padding-top: 8px; padding-top: 5px;"><a href="index.php" style="text-decoration: none">
+  <p style="padding-top: 8px; padding-left: 5px;"><a href="index.php" style="text-decoration: none">
     <img src="img/poweredby.gif" style="border: 0;" align="absmiddle" alt="Powered by PHP Almanac" title="Powered by PHPAlmanac" /> PHPAlmanac</a>
   </p>
            

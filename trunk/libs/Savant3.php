@@ -780,6 +780,7 @@ class Savant3 {
 			// only flushing the buffer will apply
 			// the callback.  so, we wrap in another output
 			// buffer, and flush the inner one so it applies the callback
+
 			ob_start();
 			
 			// inner buffer, run, and flush
@@ -943,10 +944,10 @@ class Savant3 {
 	* 
 	*/
 	
-	protected function applyFilters($buffer)
-	{
+	protected function applyFilters($buffer) {
+
 		$filters = $this->conf('filters');
-		
+
 		foreach ($filters as $callback) {
 		
 			// if the callback is a static Savant3_Filter method,
