@@ -28,18 +28,21 @@
 
 */
 
-class Almanac_Framework {
+abstract class GenClass {
 
-    public $DB;
-    public $tpl;
+    protected $phpa;
+    protected $DB;
+    protected $tpl;
 
-    public function error($msg) {
+    protected function __construct($phpa) {
 
-        $this->tpl->assignRef('error_msg', $msg);
-        $this->tpl->display('error.tpl.php');
-        exit;
+        $this->phpa = $phpa;
+        $this->DB   = $phpa->DB;
+        $this->tpl  = $phpa->tpl;
 
     }
+
+    abstract public static function Render($phpa);
 
 }
 

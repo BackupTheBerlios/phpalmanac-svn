@@ -38,6 +38,45 @@ function gdir($dir) {
     return chop($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
 }
 
+function error($msg) {
+
+    global $phpa;
+
+    $phpa->tpl->assignRef('error_msg', $msg);
+    $phpa->tpl->display('error.tpl.php');
+    exit;
+
+}
+
+/* same as range(), but with string keys like '01', '02', etc. */
+function crange($start, $end, $step=1) {
+
+    $pad_len = strlen(min($start, $end));
+    return mypad(range($start, $end, $start), $pad_len);
+
+}
+
+/* pad LEFT with zeroes until length=$pad_length */
+function mypad($input, $pad_length=2) {
+
+    if (is_array($input)) {
+
+        $func = __FUNCTION__;
+
+        foreach ($input as $key => $val) {
+            $input[$key] = $func($val, $pad_length);
+        }
+
+        return $input;
+
+    } else {
+
+        return str_pad($input, $pad_length, '0', STR_PAD_LEFT);
+
+    }
+
+}
+
 /* string functions */
 
 /* integer functions */

@@ -7,4 +7,6 @@ $db_username = 'rajesh';
 $db_password = '';
 $db_prefix = 'phpa_';
 
+$week_start = 0; // sunday
+
 ?>

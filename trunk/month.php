@@ -28,59 +28,9 @@
 
 */
 
-error_reporting(E_ALL | E_STRICT);
+require 'init.php';
+require 'libs/month_view.lib.php';
 
-define('PA_ROOT', dirname(__FILE__) . '/');
-define('PEAR_PATH', PA_ROOT . 'libs/PEAR/');
-
-set_include_path(PA_ROOT . ':'  . PEAR_PATH);
-
-ini_set('register_globals', 0);
-ini_set('allow_call_time_pass_reference', 0);
-ini_set('docref_root', null);
-ini_set('docref_ext', null);
-ini_set('html_errors', 1);
-ini_set('track_errors', 0);
-ini_set('display_errors', 1);
-set_magic_quotes_runtime(0);
-
-require 'config.php';
-require 'libs/gen_class.php';
-require 'libs/functions.lib.php';
-require 'libs/mysql.lib.php';
-require 'libs/Savant3.php';
-
-// defining table names
-
-define('T_MAIN',    $db_prefix . 'main');
-define('T_ICONS', $db_prefix . 'icons');
-
-$phpa = new StdClass;
-
-$phpa->tpl = new Savant3;
-$phpa->tpl->addPath('template', 'templates/');
-$phpa->tpl->loadFilter('trimwhitespace');
-$phpa->tpl->loadPlugin('qbuild');
-
-try {
-    $phpa->DB = new DBConnect($db_name, $db_username, $db_password, $db_host);
-} catch (Exception $e) {
-    $phpa->error('Database connection failed. MySQL said: ' . $e->getMessage());
-}
-
-$phpa->config['week_start'] = $week_start;
-
-// unsetting config variable to avoid tampering
-unset($db_type, $db_host, $db_name, $db_username, $db_password, $db_prefix, $week_start);
-
-// in case .htaccess directive is not respected
-if (get_magic_quotes_gpc() !== 1) {
-
-    array_walk_recursive($_GET,     'phpa_add_slashes');
-    array_walk_recursive($_POST,    'phpa_add_slashes');
-    array_walk_recursive($_COOKIE,  'phpa_add_slashes');
-    array_walk_recursive($_REQUEST, 'phpa_add_slashes');
-
-}
+MonthView::Render($phpa);
 
 ?>

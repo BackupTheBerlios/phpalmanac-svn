@@ -1,0 +1,980 @@
+* {
+
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.text10 { font: 10px arial, sans-serif;}
+.text10b { font: bold 10px arial, sans-serif;}
+.text11 { font: 11px arial, sans-serif;}
+.text11b { font: bold 11px arial, sans-serif;}
+
+dt { clear: both; }
+
+h3 {
+
+  font: bold 12px arial, sans-serif;
+  margin-top: 3px;
+  margin-bottom: 3px;
+
+}
+
+body {
+
+  behavior: url("csshover.htc");
+  font: 12px tahoma, sans-serif;
+
+}
+
+h1#pagetitle {
+
+  font: bold 24px arial;
+  padding-left: 2px;
+
+}
+
+#pageWrapper h5 {
+
+  font: bold 11px tahoma;
+  position: absolute;
+  right: 10px;
+  margin-top: 20px;
+
+}
+
+#pageWrapper h5#misclinks {
+
+  top: 15px;
+
+}
+
+#pageWrapper h5#miscicons {
+
+  top: 35px;
+
+}
+
+#heading {
+
+  clear: left;
+  position: relative;
+  padding: 4px;
+
+}
+
+#heading h1 {
+
+  text-align: center;
+  font: bold 22px trebuchet MS, arial;
+
+}
+
+#pageback {
+
+  position: relative;
+  font: bold 12px arial;
+  float: left;
+  margin-left: 0px;
+  text-decoration: none;
+  padding-left: 15px;
+  margin-top: 4px;
+
+}
+
+#pagenext {
+
+  position: relative;
+  font: bold 12px arial;
+  float: right;
+  margin-right: 0px;
+  text-decoration: none;
+  padding-right: 15px;
+  margin-top: 4px;	
+
+}
+
+a#pageback, a#pageback:visited {
+
+  background: transparent;
+  text-align: left;
+
+}
+
+a#pagenext, a#pagenext:visited {
+
+  background: transparent;
+  text-align: right;
+
+}
+
+a#pageback:hover {
+
+  background: transparent;
+  text-decoration: underline;
+
+}
+
+a#pagenext:hover {
+
+  background: transparent;
+  text-decoration: underline;
+
+}
+
+
+/* #jumpform {
+
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+} */
+
+#pageWrapper {
+
+  padding-top: 10px;
+  width: 780px;
+  margin: auto;	
+  position: relative;
+
+}
+
+#pageWrapper table {
+
+  *  position: relative;
+
+}
+
+#plannerWrapper {
+
+  /* width: 780px; */
+
+}
+
+.calendar {
+
+  font: 13px tahoma;
+  margin-top: 2px;
+  margin-bottom: 5px;
+
+}
+
+.calendar td a, .calendar td a:visited {
+
+  font: 11px tahoma;
+
+}
+
+.calendar td {
+
+  vertical-align: top;
+  cursor: pointer;
+  * cursor: hand;
+
+}
+
+.calendar td .daynumber {
+
+  font-size: 12px;
+  text-align: left;
+  width: 15px;
+  text-decoration: none;
+  padding-left: 2px;
+
+}
+
+.today .daynumber, .popupCalendar .today {
+
+  font-weight: bold;
+
+}
+
+.calendar .week {
+
+  width: 10px;
+  padding: 0px 2px;
+  vertical-align: middle;
+  text-decoration: none;
+  text-align: center;
+
+}
+
+#pickercal {
+
+  position: absolute; 
+  top: 30px; 
+  right: 10px; 
+  z-index: 10;
+
+}
+
+.popupCalendar th {
+
+  padding: 3px;
+  font: bold 12px tahoma, sans serif;	
+
+}
+
+.popupCalendar td {
+
+  text-align: center;
+  padding: 3px;
+  font: 12px tahoma, sans serif;
+
+}
+
+.popupCalendar a.pagerLink:link, .popupCalendar a.pagerLink:visited {
+
+  text-decoration: none;
+
+}
+
+.popupCalendar .browseYear, .popupCalendar .browseGap {
+
+  border-left-width: 0px;
+
+}
+
+.popupCalendar .browseMonth, .popupCalendar .browseGap {
+
+  border-right-width: 0px;
+
+}
+
+#dayTable, #weekTable, #reminderTable {
+
+  margin-bottom: 5px;
+
+}
+
+td.eventscont {
+
+  background-color: #fff;
+
+}
+
+.events {
+
+  width: 304px; /* needs to be wide enough for ad */
+  vertical-align: top;
+
+}
+
+.events ul {
+
+  list-style-type: none;
+
+}
+
+.event {
+
+  padding-bottom: 20px;
+
+}
+
+.eventEditor {
+
+  padding-bottom: 4px;
+  padding-top: 10px;
+  font: bold 12px Tahoma;
+
+}
+
+#eventWrapper h2, #eventWrapper h3, #detailsWrapper h2 {
+
+  font: bold 11px tahoma, arial, helvetica;
+  padding: 2px 10px;
+
+}
+
+#eventWrapper h3 {
+
+  padding-left: 20px;
+
+}
+
+#eventWrapper p {
+
+  font: 11px tahoma, arial, helvetica;
+  padding: 5px;
+  padding-left: 40px;
+
+}
+
+.eventActions {
+
+  text-align: center;
+  padding: 4px;
+
+}
+
+.eventActions li {
+
+  font: bold 10px tahoma, arial, helvetica;
+  padding-right: 10px;
+  display: inline;
+  white-space: nowrap;
+
+}
+
+#detailsWrapper {
+
+  padding: 10px;
+
+}
+
+#detailsWrapper p {
+
+  margin: 10px;
+
+}
+
+.holidays {
+
+  font: 11px tahoma, arial, helvetica;
+  padding: 5px;
+  padding-left: 40px;
+
+}
+
+.plannercont {
+
+  width: 471px;
+
+}
+
+.plannerTable {
+
+  width: 471px;
+
+}
+
+.tabletwo {
+
+  width: 100%;
+  border-left: 1px solid silver;
+  
+}
+
+.planner, #details, #rightEditor, #reminder {
+
+  vertical-align: top;
+
+}
+
+.plannerItem {
+
+  padding: 0px 4px; 
+  font: 12px Arial;
+
+}
+
+.plannerEditor {
+
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  margin-top: 10px; 
+
+}
+
+.plannerEditor strong {
+
+  font: 14px Arial;
+
+}
+
+.plannerEditLabel {
+
+  float: left;
+  width: 55px;
+  padding-top: 6px;
+
+}
+
+.planner h1, .events h1, #details h1, #rightEditor h1, #reminder h1, #leftEditor h1 {
+
+  margin: 2px 0px 3px 0px;
+  height: 18px;
+  font: bold 14px arial, tahoma, helvetica;
+  text-align: center;
+
+}
+
+.plannerTable td.time {
+
+  width: 60px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: right;
+
+}
+
+#editorWrapper {
+
+  border: 1px solid silver;
+  padding: 10px;
+  font: bold 14px arial, tahoma, helvetica;	
+
+}
+
+#editorWrapper p {
+
+  margin: 10px;
+  font: 11px arial, sans-serif;
+
+}
+
+.reminderWrapper {
+
+  height: 100%
+  padding: 10px;
+
+}
+
+.reminderWrapper div {
+
+  padding-top: 10px;
+  font: bold 11px arial, sans-serif;
+
+}
+
+#sponsorBar {
+
+  padding: 15px 0px;
+  text-align: center;
+
+}
+
+#serviceBar {
+
+  font: bold 11px tahoma,arial; 
+  height: 30px;
+
+}
+
+#serviceBar a , #serviceBar a:visited { 	
+
+  font: bold 11px tahoma,arial; 
+
+} 
+
+#sponsorBar li { display: inline; }
+
+#sponsorBar li a, #sponsorBar li a:visited {
+
+  font: bold 11px tahoma,arial; 
+  text-decoration: underline;
+  margin: 0px 5px;
+
+}
+
+#serviceBar h1
+{	
+  padding: 3px 2px 2px 2px;
+  font: bold 11px tahoma,arial; 
+}
+
+#serviceBar li
+{
+  display: inline;
+}
+
+#serviceBar li a:link, #serviceBar li a:visited
+{
+  margin-left: 10px;
+  height: 15px;
+  float: left;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#tabNav 
+{  
+  height: 1px; 
+} 
+
+#tabNav ul
+{
+  display: block;
+  list-style-type: none;
+}
+
+#tabNav li
+{
+  float: left;
+}
+
+#tabNav li a
+{
+  display: block;
+  width: 120px;
+  font: bold 11px tahoma;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 2px;
+  padding: 2px;
+}
+
+.covermonth
+{
+  width: 124px;
+  height: 1px;
+  line-height: 0px;
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  * top: 0px;
+  *left: -91px;
+}
+.coverweek
+{
+  width: 124px;
+  height: 1px;
+  position: absolute;
+  line-height: 0px;	
+  top: -1px;
+  left: 128px;
+  * top: 0px;
+  *left: 3px;
+}
+.coverday
+{
+  width: 124px;
+  height: 1px;
+  position: absolute;
+  line-height: 0px;
+  top: -1px;
+  left: 256px;
+  * top: 0px;
+  * left: 181px;
+}
+
+#pageWrapper h6 
+{
+  clear: both;
+  text-align: center;
+  padding: 0px 2px 4px 2px;
+}
+
+#weekTable
+{
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+#weekTable .plannerTable td.item, #weekTable .plannerTable td.item1
+{
+  padding: 2px;
+}
+
+.weekItem
+{
+  font: 11px tahoma, sans-serif;
+  clear: both;
+  cursor: pointer;
+  * cursor: hand;
+}
+
+#planner
+{
+  border-bottom: 1px solid silver;
+}
+
+#planner th.subhead
+{
+  border-left: 0px;
+}
+
+#tagA
+{
+  padding: 4px 0px 0px 10px;
+  font: bold 11px tahoma;
+  width: 200px;
+  text-align: left;
+  float: left;
+}
+#tagB
+{
+  padding: 4px 10px 0px 0px;
+  font: bold 11px tahoma;
+  width: 200px;
+  text-align: right;
+  float: right;
+}
+
+/**********************************************************/
+/* core layout                                            */
+/**********************************************************/
+
+body
+{
+  background: #ffffff;
+}
+
+a, a:visited
+{
+  color: #898dac;
+  text-decoration: underline;
+}
+
+.formbutton
+{
+  border: 0px solid #333333;
+  height: 20px;
+  font: 11px tahoma,arial,helvetica;
+  background-color: transparent;
+  background-image: url('../img/2/button.gif');
+  background-position: top right;
+}
+.formbutton-left
+{
+  position: relative;
+  top: 5px;
+  * top: 4px;
+}
+
+/**********************************************************/
+/* header, page nav bar, and footer                       */
+/**********************************************************/
+
+#heading, #serviceBar
+{
+  color: #000000;
+  background: #f3eadd;
+  border: 1px solid #aaaaaa;
+}
+
+#serviceBar a
+{
+  color: #000000;
+}
+
+a#pageback, a#pageback:visited, a#pagenext, a#pagenext:visited
+{
+  color: #000000;
+}
+
+#tabNav li a
+{
+  border: 1px solid #aaaaaa;
+  border-bottom-width: 0px;
+  background-color: #dde5f3;
+  color: #747892;
+}
+
+#tabNav li a.current, #tabNav li a.current:hover 
+{
+  color: #000000;
+  background-color: #f3eadd;
+  cursor: default; 
+  border-color: #aaaaaa;
+}
+#tabNav li a:hover
+{
+  background-color: #f3eadd;
+  color: #000000;
+}
+
+.covermonth, .coverweek, .coverday
+{
+  background-color: #f3eadd;
+}
+
+h1#pagetitle
+{
+  color: #404040;
+}
+
+#pageWrapper h5
+{
+  color: #404040;
+}
+
+#pageWrapper h5 a, #pageWrapper h5 a:visited
+{
+  color: #404040;
+}
+
+#pageWrapper h6 a, #pageWrapper h6 a:visited
+{
+  color: #000000;
+}
+
+#pageWrapper h6
+{
+  background-color: #f3eadd;
+  border: 1px solid #aaaaaa;
+}
+
+#editorWrapper
+{
+  background-color: #f8f5f0;
+  border: 1px solid #aaaaaa;
+  color: #898dac;
+}
+
+#sponsorBar
+{
+  color: #404040;
+  border-top: 1px solid #aaaaaa;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+
+/**********************************************************/
+/* calendar bits on show.php                              */
+/**********************************************************/
+
+
+.calendar, .popupCalendar
+{
+  border: 1px solid #aaaaaa;
+}
+
+.calendar th, #weekTable th, .popupCalendar th
+{
+  border: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
+  border-left: 1px solid #aaaaaa;
+  background: #dde5f3;
+  color: #747892
+}
+
+.popupCalendar th.browseYear, .popupCalendar th.browseMonth, .popupCalendar th.browseGap
+{
+  color: #000000;
+  background: #f3eadd;
+}
+.popupCalendar th.browseYear a, .popupCalendar th.browseMonth a, .popupCalendar th.browseGap a, .popupCalendar th.browseYear a:visited, .popupCalendar th.browseMonth a:visited, .popupCalendar th.browseGap a:visited
+{
+  color: #000000;
+}
+
+th.week
+{
+  border-width: 0px;
+  border-color: #aaaaaa;
+}
+
+.calendar td, .popupCalendar td
+{
+  background-color: #f8f5f0;
+  border: 1px solid #aaaaaa;
+  color: #898dac;
+  position: relative;
+}
+.calendar td .daynumber, .popupCalendar td 
+{
+  color: #000000;
+}
+
+.calendar .today, .popupCalendar td.today
+{
+  background-color: #F0E6D8;
+}
+
+.calendar .notcurrentmonth, .popupCalendar .notcurrentmonth 
+{
+  background-color: #d9d3d5;
+  color: #898dac;
+}
+
+.calendar td:hover
+{
+  border-color: #aaaaaa;
+}
+
+.calendar td a, .calendar td a:visited, .popupCalendar a, .popupCalendar a:visited
+{
+  color: #000000;
+}
+
+.calendar td a:hover
+{
+  color: #898dac;
+}
+
+.calendar .week,.calendar .week:hover
+{
+  text-align: center;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+/**********************************************************/
+/* event pane/details pane styles                         */
+/**********************************************************/
+
+.planner h1, .events h1, #details h1, #leftEditor h1, #reminder h1, #rightEditor h1
+{
+  border: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
+  border-left: 1px solid #aaaaaa;
+  background-color: #dde5f3;
+  color: #747892;
+}
+
+td.eventscont
+{
+  border: 1px solid #aaaaaa;
+  border-bottom-width: 0px;
+  background-color: #f8f5f0;
+}
+
+#eventWrapper h2
+{
+  border-bottom: 1px solid #aaaaaa;
+  background-color: #d9d3d5;
+  color: #898dac;
+}
+
+#detailsWrapper
+{
+  color: #898dac;
+  border: 1px solid #aaaaaa;
+  background-color: #f8f5f0;
+}
+
+#eventWrapper h3, #detailsWrapper h2
+{
+  color: #747892;
+  background-color: #F0E6D8;
+}
+
+.detailsblock
+{
+  border: solid 1px #aaaaaa;
+  padding: 5px;
+  background-color: #d9d3d5;
+  color: #898dac;
+}
+
+#planner
+{
+  border-bottom-color: #aaaaaa;
+}
+
+#plannerWrapper, #eventWrapper, #detailWrapper, #editWrapper, .reminderWrapper
+{
+  border: 1px solid #aaaaaa;
+  background-color: #f8f5f0;
+  color: #898dac;
+}
+
+#eventWrapper
+{
+  border: 0;
+}
+
+#plannerWrapper
+{
+  border: 0;
+}
+
+#plannerWrapper a, #eventWrapper a, #detailWrapper a, #editWrapper a, .reminderWrapper a,
+#plannerWrapper a:visited, #eventWrapper a:visited, #detailWrapper a:visited, #editWrapper a:visited, .reminderWrapper a:visited
+{
+  color: #000000;
+}
+#plannerWrapper a:hover, #eventWrapper a:hover, #detailWrapper a:hover, #editWrapper a:hover, .reminderWrapper a:hover
+{
+  color: #898dac;
+}
+
+
+#plannerWrapper
+{
+  padding: 4px;
+  padding-right: 0px;
+}
+
+#weekTable #plannerWrapper 
+{
+  padding-top: 0px;
+}
+
+.plannercont
+{
+  background-color: #d9d3d5;
+  border: 1px solid #aaaaaa;
+}
+
+.plannerTable .tabletwo
+{
+  border-left:1px solid #aaaaaa;  
+}
+
+.plannerTable td.item1
+{
+  background-color: #f8f5f0;
+  color: #898dac;
+}
+
+.plannerTable td.item
+{
+  background-color: #d9d3d5;
+  color: #898dac;
+}
+
+.plannerTable td.item1:hover, .plannerTable td.item:hover
+{
+  background-color: #F0E6D8;
+}
+
+.plannerTable td.time
+{
+  background-color: #dde5f3; 
+  border: 1px solid #aaaaaa;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  font: bold 10px Tahoma, Helvetica;
+  color: #747892;
+}
+.plannerTable td.time a
+{
+  color: #747892;
+  text-decoration: none;
+}
+
+.plannerTable th
+{
+  color: #747892;
+  border: 1px solid #aaaaaa;  
+  border-top: 0px;
+  border-left: 0px;
+  font: bold 12px Arial, Tahoma, Helvetica;
+}
+
+.plannerEditor
+{
+  border-bottom: 1px solid #aaaaaa; 
+}
+
+/**********************************************************/
+/* weekly view styles                                     */
+/**********************************************************/
+
+#weekTable .plannerTable td.item, #weekTable .plannerTable td.item1
+{
+  border-right: 1px solid #aaaaaa;
+}
+
+#weekTable
+{
+  border-bottom: 0px;
+}
+
+/**********************************************************/
+/* hack error bar                                         */
+/**********************************************************/
+
+.errorBar
+{
+  padding: 4px;
+  border: 1px solid #999;
+  background-color: #ffffee;
+  color: #f00;
+  font-size: 11px;
+}

@@ -28,11 +28,6 @@
 
 */
 
-require 'init.php';
-
-$phpa->tpl->assign('month', date('F'));
-$phpa->tpl->assign('year', date('Y'));
-
-$phpa->tpl->display('front_page.tpl.php');
+require 'month.php';
 
 ?>
