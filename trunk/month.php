@@ -31,6 +31,7 @@
 require 'init.php';
 require 'libs/month_view.lib.php';
 
-MonthView::Render($phpa);
+$API = new MonthView($phpa);
+$API->render();
 
 ?>

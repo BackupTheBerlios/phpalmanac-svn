@@ -34,15 +34,46 @@ abstract class GenClass {
     protected $DB;
     protected $tpl;
 
-    protected function __construct($phpa) {
+    protected $y, $m, $d;
+    protected $ts;
+
+    public function __construct($phpa) {
+
+        require_once 'Calendar/Util/Textual.php';
 
         $this->phpa = $phpa;
         $this->DB   = $phpa->DB;
         $this->tpl  = $phpa->tpl;
 
+        $this->d = isset($_GET['d']) ? intval($_GET['d']) : date('d');
+        $this->m = isset($_GET['m']) ? intval($_GET['m']) : date('m');
+        $this->y = isset($_GET['y']) ? intval($_GET['y']) : date('Y');
+
+        if (FALSE === checkdate($this->m, $this->d, $this->y)) {
+
+            $this->d = date('d');
+            $this->m = date('m');
+            $this->y = date('Y');
+
+        }
+
+        $this->ts = mktime(0,0,0, $this->m, $this->d, $this->y);
+
+        $this->tpl->assign('ts', $this->ts); // unix timestamp
+
+        $this->tpl->assignRef('d', $this->d);
+        $this->tpl->assignRef('m', $this->m);
+        $this->tpl->assignRef('y', $this->y);
+
+        // dropdown boxes data
+        // crange() is just like range() except works with strings. see libs/functions.lib.php
+
+        $this->tpl->assign('month_select', array_combine(crange('01', '12'), Calendar_Util_Textual::monthNames('short')));
+        $this->tpl->assign('year_select', range($this->y - 1, $this->y + 5));
+
     }
 
-    abstract public static function Render($phpa);
+    abstract public function Render();
 
 }
 

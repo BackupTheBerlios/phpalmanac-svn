@@ -30,64 +30,34 @@
 
 class MonthView extends GenClass {
 
-    public static function Render($phpa) {
+    public function Render() {
 
-        require_once 'Calendar/Month/Weekdays.php';
         require_once 'Calendar/Day.php';
-        require_once 'Calendar/Util/Textual.php';
+        require_once 'Calendar/Month/Weekdays.php';
 
-        $main = new self($phpa);
+        $this->month = new Calendar_Month_Weekdays($this->y, $this->m, $this->phpa->config['week_start']);
 
-        $cur_d = isset($_GET['d']) ? intval($_GET['d']) : date('d');
-        $cur_m = isset($_GET['m']) ? intval($_GET['m']) : date('m');
-        $cur_y = isset($_GET['y']) ? intval($_GET['y']) : date('Y');
-
-        if (FALSE === checkdate($cur_m, $cur_d, $cur_y)) {
-
-            $cur_d = date('d');
-            $cur_m = date('m');
-            $cur_y = date('Y');
-
-        }
-
-        $cur_ts = mktime(0,0,0, $cur_m, $cur_d, $cur_y);
-
-        $main->tpl->assign('cur_ts', $cur_ts); // unix timestamp
-        $main->tpl->assign('title_string', date('F Y', $cur_ts)); // to be used between the <title></title> tags
-
-        $main->tpl->assignRef('cur_d', $cur_d);
-        $main->tpl->assignRef('cur_m', $cur_m);
-        $main->tpl->assignRef('cur_y', $cur_y);
-
-        // dropdown boxes data
-        // crange() is just like range() except works with strings. see libs/functions.lib.php
-
-        $main->tpl->assign('month_select', array_combine(crange('01', '12'), Calendar_Util_Textual::monthNames('short')));
-        $main->tpl->assign('year_select', range($cur_y - 1, $cur_y + 5));
-
-        $cur_month = new Calendar_Month_Weekdays($cur_y, $cur_m, $phpa->config['week_start']);
-
-        $main->tpl->assign('cur_month', $cur_month); // asigns a Calendar_Month_Weekday object *as reference*
-
-        $main->tpl->assign('prev_month', $cur_month->prevMonth(TRUE)); // assigns a timestamp
-        $main->tpl->assign('next_month', $cur_month->nextMonth(TRUE)); // assigns a timestamp
+        $this->tpl->assign('title_string', date('F Y', $this->ts)); // to be used between the <title></title> tags
+        $this->tpl->assign('cur_month', $this->month); // asigns a Calendar_Month_Weekday object *as reference*
+        $this->tpl->assign('prev_month', $this->month->prevMonth(TRUE)); // assigns a timestamp
+        $this->tpl->assign('next_month', $this->month->nextMonth(TRUE)); // assigns a timestamp
 
         // get list of weekdays like sun...sat. Weekday starts as per $phpa->config['week_start']
-        $main->tpl->assign('weekdays', Calendar_Util_Textual::weekdayNames('short', $phpa->config['week_start']));
+        $this->tpl->assign('weekdays', Calendar_Util_Textual::weekdayNames('short', $this->phpa->config['week_start']));
 
         // ...
 
-        $hash = new MonthHasher($phpa->DB, $cur_y, $cur_m);
+        $hash = new MonthHasher($this->phpa->DB, $this->y, $this->m);
         $selection = array();
 
         while ($row = $hash->fetch()) {
-            $selection[] = new Calendar_Day($cur_y, $cur_m, $row['d']);
+            $selection[] = new Calendar_Day($this->y, $this->m, $row['d']);
         }
 
-        $cur_month->build($selection);
-        $main->tpl->assign('hash', $hash);
+        $this->month->build($selection);
+        $this->tpl->assign('hash', $hash);
 
-        $main->tpl->display('month_view.tpl.php');
+        $this->tpl->display('month_view.tpl.php');
 
     }
 
