@@ -2,8 +2,9 @@
 
 /*
    +----------------------------------------------------------------------+
-   | PhpAlmanac                                                           |
-   | Copyright (C) 2005 by James Logsdon                                  |
+   | PhpAlmanac 1.0.0                                                     |
+   +----------------------------------------------------------------------+
+   | Copyright (C) 2005 by Rajesh Kumar                                   |
    +----------------------------------------------------------------------+
    | This program is free software; you can redistribute it and/or modify |
    | it under the terms of the GNU General Public License as published by |
@@ -29,11 +30,11 @@
 
 class DBConnect {
 
-    private $mysqli;
+    protected $mysqli;
 
     public function __construct($database, $username='', $password='', $server='localhost') {
 
-        $this->mysqli = new mysqli($server, $username, $password, $database);
+        $this->mysqli = @new mysqli($server, $username, $password, $database);
 
         if (mysqli_connect_errno() !== 0) {
             throw new Exception(mysqli_connect_error(), mysqli_connect_errno());
@@ -44,6 +45,13 @@ class DBConnect {
     }
 
     public function query($sql) {
+
+        if (func_num_args() > 1) {
+
+            $args = func_get_args();
+            $sql  = vsprintf(array_shift($args), $args);
+
+        }
 
         $result = $this->mysqli->query($sql);
 
@@ -73,6 +81,11 @@ class DBConnect {
 
     }
 
+    public function die_query($sql) {
+
+        include 'pwd/DB_die_query.php';
+    }
+
     public function escape_string($str) {
 
         return $this->mysqli->real_escape_string($str);
@@ -88,7 +101,7 @@ class DBConnect {
         return $this->mysqli->affected_rows;
     }
 
-    public function array_query($sql, $fetch_type=MYSQLI_ASSOC) {
+    public function array_query($sql) {
 
         return $this->query($sql)->get_col_array();
     }
@@ -118,8 +131,8 @@ class DBConnect {
 
 class DBResult {
 
+    public $sql;
     protected $result;
-    protected $sql;
 
     public function __construct($result, $sql) {
 
@@ -133,9 +146,19 @@ class DBResult {
         return $this->result->fetch_array($fetch_type);
     }
 
+    public function fetch_field() {
+
+        return $this->result->fetch_field();
+    }
+
+    public function field_name($offset) {
+
+        return $this->result->fetch_field_direct($offset)->name;
+    }
+
     public function rewind() {
 
-        return $this->seek(0);
+        return $this->seek(0) && $this->result->field_seek(0);
     }
 
     public function num_rows() {
@@ -153,7 +176,7 @@ class DBResult {
         $results = array();
         $this->rewind();
 
-        while ($row = $this->fetch()) {
+        while ($row = $this->fetch(is_numeric($col) ? MYSQLI_NUM : MYSQLI_ASSOC)) {
             $results[] = $row[$col];
         }
 
@@ -167,15 +190,10 @@ class DBResult {
         return $this->result->data_seek($offset);
     }
 
-    public function get_issued_sql() {
-
-        return $this->sql;
-    }
-
     public function get_result($row=0, $column=0) {
         
         $this->seek($row);
-        $row = $this->fetch();
+        $row = $this->fetch(MYSQLI_BOTH);
         $this->rewind();
         return $row[$column];
 
@@ -184,6 +202,20 @@ class DBResult {
     public function field_len($offset=0) {
 
         return $this->result->lengths[$offset];
+    }
+
+    public function __toString() {
+
+        $this->rewind();
+        $out = array();
+
+        while ($row = $this->fetch()) {
+            $out[] = $row;
+        }
+
+        $this->rewind();
+        return print_r($out, TRUE);
+
     }
 
     public function free() {

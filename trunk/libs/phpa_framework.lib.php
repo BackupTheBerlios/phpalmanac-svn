@@ -28,11 +28,19 @@
 
 */
 
-require 'init.php';
+class Almanac_Framework {
 
-$phpa->tpl->assign('month', date('F'));
-$phpa->tpl->assign('year', date('Y'));
+    public $DB;
+    public $tpl;
 
-$phpa->tpl->display('front_page.tpl.php');
+    public function error($msg) {
+
+        $this->tpl->assignRef('error_msg', $msg);
+        $this->tpl->display('error.tpl.php');
+        exit;
+
+    }
+
+}
 
 ?>

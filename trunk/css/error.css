@@ -1,0 +1,31 @@
+body {
+
+  margin: 10% 20% auto 20%;
+  font: 10px Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+#errorbox {
+
+  border: 1px solid #444444;
+
+}
+
+h2 {
+
+  margin: 0;
+  color: #ffffff;
+  background-color: #656565;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  font-variant: small-caps;
+  padding: 5px 4px;
+
+}
+
+#errorbox div {
+
+  padding: 6px 5px;
+  background-color: #f1f1f1
+
+}

@@ -28,11 +28,20 @@
 
 */
 
-require 'init.php';
+function phpa_add_slashes(&$input) {
 
-$phpa->tpl->assign('month', date('F'));
-$phpa->tpl->assign('year', date('Y'));
+    $input = addslashes($input);
+}
 
-$phpa->tpl->display('front_page.tpl.php');
+function gdir($dir) {
+
+    return chop($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+}
+
+/* string functions */
+
+/* integer functions */
+
+/* miscellaneous functions */
 
 ?>
