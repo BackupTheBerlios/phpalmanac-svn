@@ -65,7 +65,7 @@ $phpa->tpl->loadPlugin('qbuild');
 try {
     $phpa->DB = new DBConnect($db_name, $db_username, $db_password, $db_host);
 } catch (Exception $e) {
-    $phpa->error('Database connection failed. MySQL said: ' . $e->getMessage());
+    error('Database connection failed. MySQL said: ' . $e->getMessage());
 }
 
 $phpa->config['week_start'] = $week_start;
