@@ -109,16 +109,29 @@
                 if ($day->isSelected()) {
 
                     $events = $this->hash->get_events($day->thisDay());
+                    $x = 0;
 
-                    foreach ($events as $event) {?>
+                    foreach ($events as $event) { 
+
+                        if ($x == 3) { ?>
+
+                        <div style="margin: 2px 0; padding: 2px; text-align: right;" class="text11">
+                        <a href="day.php?<?=$qbuild?>">more...</a>
+                        </div>
+<?php
+                            break;
+                        }
+?>
 
                     <div style="margin: 2px 0px; padding: 2px;" class="text11">
                             <img style="margin-right: 4px; float: left;" src="img/icons/<?=$event['iid']?>.gif" align="absmiddle">
                             <a href="viewevent.php?<?=$qbuild . '&id=' . $event['id']?>"><?=$event['title']?></a>
                         </div>
 
+ 
+                         <?php $x++;
 
-                         <?php } 
+} 
 
                 }
             
