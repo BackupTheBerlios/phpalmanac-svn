@@ -1,0 +1,15 @@
+Setting up the database
+-----------------------
+
+These procedures assume you have a working installation of MySQL version 4.1 or above.
+
+Execute the following commands:
+
+  $ mysqladmin create phpa
+  $ mysql -e 'GRANT ALL ON phpa.* TO phpa';
+  $ mysqladmin reload
+
+And you probably want to import some data:
+
+  $ wget 
+  $ gunzip -c phpa-db-dump.gz | mysql phpa

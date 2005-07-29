@@ -44,6 +44,8 @@ ini_set('track_errors', 0);
 ini_set('display_errors', 1);
 set_magic_quotes_runtime(0);
 
+date_default_timezone_set('Canada/Pacific');
+
 require 'config.php';
 require 'libs/gen_class.php';
 require 'libs/functions.lib.php';
@@ -52,7 +54,7 @@ require 'libs/Savant3.php';
 
 // defining table names
 
-define('T_MAIN',    $db_prefix . 'main');
+define('T_MAIN',  $db_prefix . 'main');
 define('T_ICONS', $db_prefix . 'icons');
 
 $phpa = new StdClass;
@@ -61,10 +63,6 @@ $phpa->tpl = new Savant3;
 $phpa->tpl->addPath('template', 'templates/');
 $phpa->tpl->loadPlugin('qbuild');
 
-if ( !class_exists ( 'mysqli', false ) )
-{
-	error ( 'You must have MySQLi installed! Please contact your host or recompile php5 with MySQLi!' );
-}
 try {
     $phpa->DB = new DBConnect($db_name, $db_username, $db_password, $db_host);
 } catch (Exception $e) {

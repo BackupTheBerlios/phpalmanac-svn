@@ -34,7 +34,7 @@ class DBConnect {
 
     public function __construct($database, $username='', $password='', $server='localhost') {
 
-        $this->mysqli = @new mysqli($server, $username, $password, $database);
+        $this->mysqli = new mysqli($server, $username, $password, $database);
 
         if (mysqli_connect_errno() !== 0) {
             throw new Exception(mysqli_connect_error(), mysqli_connect_errno());

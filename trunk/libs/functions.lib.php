@@ -93,8 +93,6 @@ function format_time($time) {
 
 }
 
-
-
 /* string functions */
 
 /* integer functions */
@@ -102,7 +100,7 @@ function format_time($time) {
 function int_val($int) {
 
     if (is_array($int)) {
-        return array_map('int_val', $int);
+        return array_map(__FUNCTION__, $int);
     }
         
     preg_match('([0-9]+)', $int, $board);
