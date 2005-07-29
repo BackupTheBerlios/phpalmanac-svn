@@ -23,7 +23,7 @@
    +----------------------------------------------------------------------+
    | Author: Rajesh Kumar <rks@meetrajesh.com>                            |
    +----------------------------------------------------------------------+
-  
+
    $Id$
 
 */
@@ -61,6 +61,10 @@ $phpa->tpl = new Savant3;
 $phpa->tpl->addPath('template', 'templates/');
 $phpa->tpl->loadPlugin('qbuild');
 
+if ( !class_exists ( 'mysqli', false ) )
+{
+	error ( 'You must have MySQLi installed! Please contact your host or recompile php5 with MySQLi!' );
+}
 try {
     $phpa->DB = new DBConnect($db_name, $db_username, $db_password, $db_host);
 } catch (Exception $e) {
